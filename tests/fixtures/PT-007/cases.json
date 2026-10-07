@@ -1,0 +1,22 @@
+{
+  "ruleId": "PT-007",
+  "purpose": "工作许可手续应包含现场复查、指明带电部位与双方确认签名（依据 GB 26860—2011 5.5.1）",
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "PT-007-compliant.json",
+      "expect": {
+        "ruleId": "PT-007",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "PT-007-unsafe.json",
+      "expect": {
+        "ruleId": "PT-007",
+        "count": 1
+      }
+    }
+  ]
+}

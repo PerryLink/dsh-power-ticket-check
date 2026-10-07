@@ -1,0 +1,22 @@
+{
+  "ruleId": "PT-006",
+  "purpose": "安全技术措施应包含停电、验电、装设接地线、悬挂标示牌、装设遮栏五项（依据 GB 26860—2011 6.1.1，该章为强制性）",
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "PT-006-compliant.json",
+      "expect": {
+        "ruleId": "PT-006",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "PT-006-unsafe.json",
+      "expect": {
+        "ruleId": "PT-006",
+        "count": 1
+      }
+    }
+  ]
+}

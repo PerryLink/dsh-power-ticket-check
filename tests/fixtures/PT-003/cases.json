@@ -1,0 +1,21 @@
+{
+  "ruleId": "PT-003",
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "PT-003-compliant.json",
+      "expect": {
+        "ruleId": "PT-003",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "PT-003-unsafe.json",
+      "expect": {
+        "ruleId": "PT-003",
+        "count": 1
+      }
+    }
+  ]
+}

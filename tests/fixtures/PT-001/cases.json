@@ -1,0 +1,32 @@
+{
+  "ruleId": "PT-001",
+  "configure": {
+    "PT-001": {
+      "requiredFields": [
+        "工作票编号",
+        "工作票种类",
+        "工作负责人",
+        "工作许可人",
+        "许可时间"
+      ]
+    }
+  },
+  "pairs": [
+    {
+      "name": "expected-state",
+      "material": "PT-001-compliant.json",
+      "expect": {
+        "ruleId": "PT-001",
+        "count": 0
+      }
+    },
+    {
+      "name": "difference-present",
+      "material": "PT-001-unsafe.json",
+      "expect": {
+        "ruleId": "PT-001",
+        "count": 1
+      }
+    }
+  ]
+}
