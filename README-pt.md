@@ -1,4 +1,23 @@
-# dsh-power-ticket-check
+# dsh-power-ticket-check — Verificação da completude do permiso de trabalho elétrico e da ordem de emissão, autorização e encerramento
+
+`dsh-power-ticket-check` lê um **电力工作票** como um mapa plano dos nomes das colunas do próprio formulário para os respetivos valores, em conjunto com os papéis nele indicados, e verifica o que se pode exigir a um formulário: que todas as colunas do seu `requiredFields` configurado estejam preenchidas, que o 工作票种类 conste dos que a sua implantação declara, que 签发时间 → 许可时间 → 终结时间 formem uma sequência fisicamente possível, que um 延期时间 empurre o fim para a frente e não seja anterior à autorização, que os papéis configurados como exclusivos sejam desempenhados por pessoas diferentes, e que o texto das medidas de segurança e da autorização contenha os cinco termos de 安全技术措施 e os três de 许可手续 que o pacote procura. As verificações que não puderam ser executadas são listadas em `skipped` com o respetivo motivo, em vez de passarem em silêncio.
+
+## O que ele responde
+
+| Você pergunta | O que ele responde |
+|---|---|
+| Tal como vem, aprova todos os permís que lhe passo, por quê? | Porque `PT-001` declara-se a si mesma em `skipped`, e não como aprovada. A sua lista `requiredFields` vem vazia, pelo que a regra não pode ser executada; preencha-a com as colunas que o seu próprio formulário exige. Mesmo configurada, `PT-001` verifica que a coluna está preenchida, não que o valor esteja correto, e o seu nível é `info`. |
+| O permís é um 电气第一种工作票 mas a 工作性质 menciona 带电作业 — isso é reportado como contradição? | Não. `PT-002` reporta apenas duas coisas: que falte o 工作票种类, ou que não conste dos tipos que a sua implantação declara. A sua lista `ticketKinds` vem vazia e a regra declara-se então em `skipped`, tal como `PT-005` quando a sua lista `exclusiveRolePairs` está vazia; o plugin não decide de que tipo de permís uma tarefa precisa. Depois de preencher essas listas, configure `PT-005` com o par 工作许可人 e 工作负责人 para que a mesma pessoa nas duas colunas seja reportada. Nenhuma das regras julga a habilitação de alguém nem se foi autorizado acumular dois papéis. |
+| O 许可时间 está escrito antes do 签发时间, e além disso uma coluna de tempo não é analisável. | `PT-003` reporta ambas as coisas: o 许可时间 anterior ao 签发时间, o 终结时间 anterior ao 许可时间, e qualquer coluna ilegível como 无法解析为日期时间, esperando uma forma como `2026-03-15 08:30`. Ambos os extremos são convertidos num total absoluto de minutos, pelo que um permís que atravessa a meia-noite é comparado corretamente. Se o 签发时间 ou o 许可时间 não puderem ser lidos de todo, a regra declara-se em `skipped`, porque a verificação da ordem não pode ser estabelecida. Nunca verifica se o trabalho seguiu realmente o permís, e o limite opcional de intervalo ou de duração é você quem o configura. |
+| O 延期时间 é anterior ao 计划结束时间, pelo que a prorrogação encurta o trabalho em vez de o prolongar. | `PT-004` reporta-o, e reporta também um 延期时间 anterior ao 许可时间. A norma não fixa qualquer limite a quanto nem a quantas vezes um permís pode ser prorrogado, pelo que a regra não tem limite quantitativo nem verifica se as formalidades da prorrogação foram cumpridas. |
+| A coluna 安全措施 está preenchida, mas menciona apenas 停电 e 验电. | `PT-006` reporta os três termos em falta, um por um. É a única regra aqui com nível `error`, porque a sua cláusula 6.1.1 está no capítulo obrigatório, e verifica que as cinco medidas estão escritas no permís, não que correspondam ao local ou tenham sido executadas. Se não encontrar nenhuma coluna de medidas legível, declara-se em `skipped`. |
+| Nada no permís mostra que o 工作许可人 tenha voltado ao local com o 工作负责人. | `PT-007` reporta quais dos três termos das formalidades de autorização faltam no texto que lê, e esse texto são as `permitColumns` mais os nomes das colunas de papel. Lê apenas a redação: não pode saber se a revisão do local aconteceu de facto, e uma instituição que queira que isto bloqueie pode subir o nível da regra no pacote sem tocar no código. |
+
+## Normas que segue
+
+| Documento | Número | Regras que o citam |
+|---|---|---|
+| 《电力安全工作规程 发电厂和变电站电气部分》 | GB 26860—2011 | PT-001, PT-002, PT-003, PT-004, PT-005, PT-006, PT-007 |
 
 **Boundary:** this plugin checks one **电力工作票** for what a form can be held to — that the required
 boxes are filled, that 签发 / 许可 / 终结 happened in an order that is physically possible, that 延期

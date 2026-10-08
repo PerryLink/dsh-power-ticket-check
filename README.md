@@ -1,4 +1,23 @@
-# dsh-power-ticket-check
+# dsh-power-ticket-check — Power work-ticket completeness and issue-permit-termination order check
+
+`dsh-power-ticket-check` reads one **电力工作票** as a flat mapping of the ticket's own column names to their values, together with the roles named on it, and checks that ticket for what a form can be held to: that every column in your configured `requiredFields` is filled, that the 工作票种类 is one your deployment lists, that 签发时间 → 许可时间 → 终结时间 form a sequence that is physically possible, that a 延期时间 pushes the end forward and does not precede the permit, that roles you configured as exclusive are held by different people, and that the safety-measure and permit text carries the five 安全技术措施 terms and the three 许可手续 terms the pack looks for. Checks that could not run are listed in `skipped` with their reason rather than passing silently.
+
+## What it answers
+
+| You ask | What it answers |
+|---|---|
+| Out of the box it passes every ticket I run through it — why? | Because `PT-001` reports itself in `skipped`, not as a pass. Its `requiredFields` list ships empty, so the rule cannot run; fill it with the columns your own form requires. Even when configured, `PT-001` checks that a column is filled, not that the value in it is correct, and it sits at `info`. |
+| The ticket is a 电气第一种工作票 but the 工作性质 mentions 带电作业 — is that a contradiction it reports? | No. `PT-002` reports only two things: that the 工作票种类 is missing, or that it is not among the kinds your deployment lists. Its `ticketKinds` list ships empty and the rule then reports itself in `skipped`, exactly as `PT-005` does when its `exclusiveRolePairs` list is empty; the plugin does not decide which kind of ticket a job needs. Once you fill those lists, configure `PT-005` with the pair 工作许可人 and 工作负责人 to have the same person in both columns reported. Neither rule judges anyone's qualification or whether holding two roles was approved. |
+| The 许可时间 is written earlier than the 签发时间, and one time column will not parse. | `PT-003` reports both: 许可时间 earlier than 签发时间, 终结时间 earlier than 许可时间, and any unreadable column as 无法解析为日期时间, expecting a form such as `2026-03-15 08:30`. Both ends are converted to an absolute minute count, so a ticket spanning midnight compares correctly. If 签发时间 or 许可时间 cannot be read at all, the rule reports itself in `skipped`, because the order check cannot be established. It never checks whether the work actually followed the ticket, and an optional interval or duration limit is yours to configure. |
+| The 延期时间 is earlier than the 计划结束时间, so the extension shortens the job rather than lengthening it. | `PT-004` reports it, and also reports a 延期时间 earlier than the 许可时间. The standard sets no ceiling on how long or how often a ticket may be extended, so the rule carries no quantitative limit and does not check whether the extension formalities were completed. |
+| The 安全措施 column is filled in but mentions only 停电 and 验电. | `PT-006` reports the three missing terms one by one. It is the only rule here at `error`, because its clause 6.1.1 sits in the mandatory chapter, and it checks that the five measures are written on the ticket, not that they match the site or were carried out. If no readable measure column is found it reports itself in `skipped`. |
+| Nothing on the ticket shows that the 工作许可人 went to the site again with the 工作负责人. | `PT-007` reports which of the three permit-formality terms are absent from the text it reads, that text being the `permitColumns` plus the names in the role columns. It reads wording only: it cannot tell whether the site re-check really happened, and an institution that wants this to block can raise the rule's severity in the pack without a code change. |
+
+## Standards it follows
+
+| Document | Number | Cited by rules |
+|---|---|---|
+| 《电力安全工作规程 发电厂和变电站电气部分》 | GB 26860—2011 | PT-001, PT-002, PT-003, PT-004, PT-005, PT-006, PT-007 |
 
 **Boundary:** this plugin checks one **电力工作票** for what a form can be held to — that the required
 boxes are filled, that 签发 / 许可 / 终结 happened in an order that is physically possible, that 延期
