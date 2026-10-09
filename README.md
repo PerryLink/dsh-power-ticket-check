@@ -1,6 +1,14 @@
 # dsh-power-ticket-check — Power work-ticket completeness and issue-permit-termination order check
 
+[![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+
 `dsh-power-ticket-check` reads one **电力工作票** as a flat mapping of the ticket's own column names to their values, together with the roles named on it, and checks that ticket for what a form can be held to: that every column in your configured `requiredFields` is filled, that the 工作票种类 is one your deployment lists, that 签发时间 → 许可时间 → 终结时间 form a sequence that is physically possible, that a 延期时间 pushes the end forward and does not precede the permit, that roles you configured as exclusive are held by different people, and that the safety-measure and permit text carries the five 安全技术措施 terms and the three 许可手续 terms the pack looks for. Checks that could not run are listed in `skipped` with their reason rather than passing silently.
+
+## What it looks like
+
+![Terminal demo of dsh-power-ticket-check: real output over its PT-003 fixture](https://raw.githubusercontent.com/PerryLink/dsh-power-ticket-check/main/docs/assets/dsh-power-ticket-check-demo.png)
+
+Real output from this plugin over its own `PT-003` test fixture — not a mock-up. The rule pack ships no invented quotations, so a finding names both the clause it applied and the fact that the clause text was not obtained.
 
 ## What it answers
 
