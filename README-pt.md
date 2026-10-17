@@ -4,6 +4,13 @@
 
 `dsh-power-ticket-check` lê um **电力工作票** como um mapa plano dos nomes das colunas do próprio formulário para os respetivos valores, em conjunto com os papéis nele indicados, e verifica o que se pode exigir a um formulário: que todas as colunas do seu `requiredFields` configurado estejam preenchidas, que o 工作票种类 conste dos que a sua implantação declara, que 签发时间 → 许可时间 → 终结时间 formem uma sequência fisicamente possível, que um 延期时间 empurre o fim para a frente e não seja anterior à autorização, que os papéis configurados como exclusivos sejam desempenhados por pessoas diferentes, e que o texto das medidas de segurança e da autorização contenha os cinco termos de 安全技术措施 e os três de 许可手续 que o pacote procura. As verificações que não puderam ser executadas são listadas em `skipped` com o respetivo motivo, em vez de passarem em silêncio.
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-power-ticket-check
+dsh --profile <name> --dump-config | grep 'dsh-power-ticket-check'
+```
+
 ## Como é a saída
 
 ![Terminal demo of dsh-power-ticket-check: real output over its PT-003 fixture](https://raw.githubusercontent.com/PerryLink/dsh-power-ticket-check/main/docs/assets/dsh-power-ticket-check-hero.png)
@@ -71,13 +78,6 @@ kind of ticket a job needs, and **does not** verify that anyone's qualification 
 ## What it does
 
 A tabela de regras, os campos e o comportamento detalhado estão em [README.md](README.md#what-it-does) (versão principal em inglês). O plugin apenas lista divergências literais frente às cláusulas citadas e indica em `skipped` cada verificação que não pôde ser executada.
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-power-ticket-check
-dsh --profile <name> --dump-config | grep 'dsh-power-ticket-check'
-```
 
 ## Configuration
 

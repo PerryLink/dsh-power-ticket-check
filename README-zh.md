@@ -4,6 +4,13 @@
 
 `dsh-power-ticket-check` 读取一份 **电力工作票**——以票面栏目名为键、栏目取值为值的平铺映射，外加票上列出的人员角色——按一张票面能被要求到的范围核对：本机构配置的 `requiredFields` 各栏是否都已填写、工作票种类是否在本机构列出的票种之内、签发时间 → 许可时间 → 终结时间 的顺序是否物理上成立、延期时间是否把结束时间向后推且不早于许可时间、本机构配置为须分设的角色是否由不同人员担任，以及安全措施与许可文本中是否出现规则库要求核对的安全技术措施五项与许可手续三项关键词。未能执行的检查逐条列在 `skipped` 并写明原因，而不是静默通过。
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-power-ticket-check
+dsh --profile <name> --dump-config | grep 'dsh-power-ticket-check'
+```
+
 ## 实际输出长什么样
 
 ![Terminal demo of dsh-power-ticket-check: real output over its PT-003 fixture](https://raw.githubusercontent.com/PerryLink/dsh-power-ticket-check/main/docs/assets/dsh-power-ticket-check-hero.png)
@@ -71,13 +78,6 @@ kind of ticket a job needs, and **does not** verify that anyone's qualification 
 ## What it does
 
 规则表、字段说明与行为细节见 [README.md](README.md#what-it-does)（英文主版本）。本插件只列出材料与所引条款之间的字面差异，并对无法执行的检查在 `skipped` 中逐项说明。
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-power-ticket-check
-dsh --profile <name> --dump-config | grep 'dsh-power-ticket-check'
-```
 
 ## Configuration
 

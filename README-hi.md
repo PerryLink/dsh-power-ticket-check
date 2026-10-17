@@ -4,6 +4,13 @@
 
 `dsh-power-ticket-check` एक **电力工作票** को उसके अपने कॉलम नामों से मानों तक के सपाट मैपिंग के रूप में पढ़ता है — साथ में उस पर अंकित भूमिकाएँ — और उस अनुज्ञप्ति की वह जाँच करता है जो एक फ़ॉर्म से अपेक्षित की जा सकती है: आपके कॉन्फ़िगर किए गए `requiredFields` के हर कॉलम में मान भरा हो, 工作票种类 आपकी संस्था द्वारा सूचीबद्ध किस्मों में से हो, 签发时间 → 许可时间 → 终结时间 का क्रम भौतिक रूप से संभव हो, 延期时间 अंत को आगे बढ़ाए और अनुमति से पहले न हो, जिन भूमिकाओं को आपने अलग-अलग रखने के लिए कॉन्फ़िगर किया है वे अलग-अलग व्यक्तियों के हों, तथा सुरक्षा-उपाय और अनुमति के पाठ में नियम-पैक द्वारा खोजे जाने वाले 安全技术措施 के पाँच और 许可手续 के तीन शब्द मौजूद हों। जो जाँचें चल नहीं सकीं, वे चुपचाप पास होने के बजाय कारण के साथ `skipped` में दर्ज होती हैं।
 
+## Install
+
+```sh
+dsh plugin --profile <name> add dsh-power-ticket-check
+dsh --profile <name> --dump-config | grep 'dsh-power-ticket-check'
+```
+
 ## आउटपुट कैसा दिखता है
 
 ![Terminal demo of dsh-power-ticket-check: real output over its PT-003 fixture](https://raw.githubusercontent.com/PerryLink/dsh-power-ticket-check/main/docs/assets/dsh-power-ticket-check-hero.png)
@@ -71,13 +78,6 @@ kind of ticket a job needs, and **does not** verify that anyone's qualification 
 ## What it does
 
 नियम-सूची, फ़ील्ड और विस्तृत व्यवहार [README.md](README.md#what-it-does) (अंग्रेज़ी मुख्य संस्करण) में हैं। यह प्लगइन केवल उद्धृत धाराओं के सामने शाब्दिक अंतर सूचीबद्ध करता है और हर न चल पाई जाँच को `skipped` में बताता है।
-
-## Install
-
-```sh
-dsh plugin --profile <name> add dsh-power-ticket-check
-dsh --profile <name> --dump-config | grep 'dsh-power-ticket-check'
-```
 
 ## Configuration
 
