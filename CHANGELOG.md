@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.4 - 2026-10-17
+
+- Compatibility: declare `engines.dsh` `>=0.2.1-0 <0.3.0`; move `@deepseek-ai/dsh-*` devDependencies to `0.2.1-rc.2`; add `@deepseek-ai/dsh-working-directory`.
+- Docs: the compatibility table no longer claims `engines.dsh` is undeclared; drop the retired `both` tool mode.
+
+
 ## 0.2.3
 
 - Add a demo card to the README: one terminal shot of this plugin's real output
@@ -49,3 +55,4 @@
 - Five-language READMEs hold the same section count and the same configuration keys.
 - Rule pack: 7 rules across PT-001..PT-007.
 - Licensed Apache-2.0.
+
