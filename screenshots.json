@@ -1,0 +1,14 @@
+[
+  {
+    "path": "docs/assets/dsh-power-ticket-check-hero.png",
+    "kind": "hero",
+    "alt": "dsh-power-ticket-check terminal output",
+    "caption": "Real dsh-power-ticket-check checker output; 39 tests passed."
+  },
+  {
+    "path": "docs/assets/dsh-power-ticket-check-demo.gif",
+    "kind": "demo",
+    "alt": "Animated dsh-power-ticket-check terminal session",
+    "caption": "The same run, assembled line by line."
+  }
+]
