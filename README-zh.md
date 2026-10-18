@@ -38,11 +38,7 @@ dsh --profile <name> --dump-config | grep 'dsh-power-ticket-check'
 |---|---|---|
 | 《电力安全工作规程 发电厂和变电站电气部分》 | GB 26860—2011 | PT-001, PT-002, PT-003, PT-004, PT-005, PT-006, PT-007 |
 
-**Boundary:** this plugin checks one **电力工作票** for what a form can be held to — that the required
-boxes are filled, that 签发 / 许可 / 终结 happened in an order that is physically possible, that 延期
-moves the end forward, and that roles you require to be separate are held by different people. It does
-**not** judge whether the safety measures written on the ticket were adequate, **does not** say which
-kind of ticket a job needs, and **does not** verify that anyone's qualification is real.
+**边界（中文译文，以英文原文为准）：** 本插件按一张票面可以被要求到的范围核对一份 **电力工作票**——必填栏目是否填写，签发 / 许可 / 终结 的发生顺序是否物理上成立，延期是否把结束时间向后推，以及你要求分设的角色是否由不同人员担任。它**不**判断票面所写的安全措施是否充分，**不**指明某项作业需要哪一种工作票，也**不**核实任何人的资格是否真实。
 
 > ### ⚠️ Three things this plugin refuses to do, and the effect tier that fixes its severities
 >
