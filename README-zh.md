@@ -40,29 +40,15 @@ dsh --profile <name> --dump-config | grep 'dsh-power-ticket-check'
 
 **边界（中文译文，以英文原文为准）：** 本插件按一张票面可以被要求到的范围核对一份 **电力工作票**——必填栏目是否填写，签发 / 许可 / 终结 的发生顺序是否物理上成立，延期是否把结束时间向后推，以及你要求分设的角色是否由不同人员担任。它**不**判断票面所写的安全措施是否充分，**不**指明某项作业需要哪一种工作票，也**不**核实任何人的资格是否真实。
 
-> ### ⚠️ Three things this plugin refuses to do, and the effect tier that fixes its severities
+> ### ⚠️ 本插件拒绝做的三件事，以及决定其严重级的效力层级（以英文原文为准）
 >
-> **1. It respects the standard's own effect tier.** GB 26860—2011's foreword says, verbatim,
-> 「本标准的第5章和7.3.4为推荐性，其余为强制性」 — **the work-ticket regime sits in the *recommendatory*
-> chapter 5.** So every rule resting on chapter 5 ships at `warn` or `info` and **nothing there can block a
-> workflow**. `PT-006` (the five safety technical measures, clause 6.1.1) is the **only** `error`, because
-> chapter 6 is mandatory. `PT-007` (the permit formalities, clause 5.5.1) is a `warn`; its note explains that
-> an institution which wants those formalities to block can raise it by editing the rule pack, with no code
-> change. A test asserts both directions: no chapter-5 rule is an `error`, and `PT-006` is the sole one.
+> **1. 它尊重标准自身的效力层级。** GB 26860—2011 的前言逐字写着：「本标准的第5章和7.3.4为推荐性，其余为强制性」——**工作票制度位于*推荐性*的第 5 章。** 因此凡以第 5 章为依据的规则，出厂均为 `warn` 或 `info`，**其中没有任何一条能阻断流程**。`PT-006`（安全技术措施五项，6.1.1 条）是**唯一**的 `error`，因为第 6 章是强制性的。`PT-007`（许可手续，5.5.1 条）是 `warn`；其 note 说明，希望这些手续能阻断流程的机构，可以修改规则库将其提高，无需改代码。有一项测试对两个方向都做了断言：没有任何第 5 章的规则是 `error`，且 `PT-006` 是唯一一条。
 >
-> **2. It does not adopt three claims that have no basis in the standards.** After reading GB 26860—2011
-> and GB 26859—2011 in full: there is **no** "第一种工作票应工作前一日送达" deadline anywhere; 5.3.12 and
-> 5.4.10 say only 「延期应办理手续」 with **no ceiling on duration or count**; and the statutory name is
-> **紧急抢修单** (5.2.4), not "事故应急抢修单". A test asserts the pack records all three.
+> **2. 它不采纳三项在标准中没有依据的说法。** 完整读过 GB 26860—2011 与 GB 26859—2011 之后：任何地方都**没有**「第一种工作票应工作前一日送达」这样的时限；5.3.12 与 5.4.10 只说「延期应办理手续」，**对延期时长与次数均无上限**；法定名称是**紧急抢修单**（5.2.4），而不是「事故应急抢修单」。有一项测试断言规则库记录了三者。
 >
-> **3. It does not treat the ticket layout as mandatory.** 5.1.2 says the ticket "**可**包含" those items,
-> and appendices A–D are marked **资料性附录** (informative) in the standard's contents. So `PT-001` ships
-> with an **empty** field list for you to fill from your own form, and reports at `info`.
+> **3. 它不把票面版式当作强制要求。** 5.1.2 说工作票「**可**包含」这些项目，而附录 A–D 在标准目录中标为**资料性附录**（informative）。因此 `PT-001` 出厂时字段清单为**空**，由你按本单位票面填写，并以 `info` 报告。
 >
-> Two more lists are yours: `PT-002`'s ticket kinds and `PT-005`'s exclusive role pairs. Both ship empty.
-> The plugin never judges whether the safety measures written on a ticket were adequate, which ticket
-> kind a job needs, or whether anyone's qualification is real — the standard sets out roles' **duties**
-> (5.4.1–5.4.5) and **no qualification conditions**.
+> 还有两份清单属于你：`PT-002` 的票种与 `PT-005` 的互斥角色对。两者出厂均为空。本插件从不判断票面所写的安全措施是否充分、某项作业需要哪一种工作票，也不判断任何人的资格是否真实——标准规定的是各角色的**职责**（5.4.1–5.4.5），**没有规定任何资格条件**。
 
 ## Compatibility
 
