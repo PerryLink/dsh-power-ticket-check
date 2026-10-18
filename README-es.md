@@ -1,5 +1,12 @@
 # dsh-power-ticket-check — Verificación de la completitud del permiso de trabajo eléctrico y del orden de emisión, autorización y cierre
 
+[English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
+
+```sh
+dsh plugin --profile <name> add dsh-power-ticket-check
+```
+
+
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
 
 `dsh-power-ticket-check` lee un **电力工作票** como un mapa plano de los nombres de columna del propio formulario a sus valores, junto con los roles que figuran en él, y comprueba lo que puede exigirse a un formulario: que estén rellenas todas las columnas de su `requiredFields` configurado, que el 工作票种类 figure entre los que declara su implantación, que 签发时间 → 许可时间 → 终结时间 formen una secuencia físicamente posible, que un 延期时间 desplace el final hacia adelante y no sea anterior a la autorización, que los roles configurados como exclusivos los desempeñen personas distintas, y que el texto de medidas de seguridad y de autorización contenga los cinco términos de 安全技术措施 y los tres de 许可手续 que el paquete busca. Las comprobaciones que no pudieron ejecutarse se listan en `skipped` con su motivo, en lugar de pasar en silencio.
