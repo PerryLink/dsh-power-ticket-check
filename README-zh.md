@@ -3,6 +3,7 @@
 [English](README.md) · [简体中文](README-zh.md) · [Español](README-es.md) · [Português](README-pt.md) · [हिन्दी](README-hi.md)
 
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+[![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-power-ticket-check?metric=downloads)](https://dshfind.com/en/plugins/PerryLink/dsh-power-ticket-check?ref=badge)
 
 `dsh-power-ticket-check` 读取一份 **电力工作票**——以票面栏目名为键、栏目取值为值的平铺映射，外加票上列出的人员角色——按一张票面能被要求到的范围核对：本机构配置的 `requiredFields` 各栏是否都已填写、工作票种类是否在本机构列出的票种之内、签发时间 → 许可时间 → 终结时间 的顺序是否物理上成立、延期时间是否把结束时间向后推且不早于许可时间、本机构配置为须分设的角色是否由不同人员担任，以及安全措施与许可文本中是否出现规则库要求核对的安全技术措施五项与许可手续三项关键词。未能执行的检查逐条列在 `skipped` 并写明原因，而不是静默通过。
 

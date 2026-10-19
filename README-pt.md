@@ -8,6 +8,7 @@ dsh plugin --profile <name> add dsh-power-ticket-check
 
 
 [![DSH Market](https://raw.githubusercontent.com/2BingLing/dsh-market/master/assets/readme/badge-listed-en.svg)](https://dsh.market/)
+[![dshfind](https://dshfind.com/api/badge/PerryLink/dsh-power-ticket-check?metric=downloads)](https://dshfind.com/en/plugins/PerryLink/dsh-power-ticket-check?ref=badge)
 
 `dsh-power-ticket-check` lê um **电力工作票** como um mapa plano dos nomes das colunas do próprio formulário para os respetivos valores, em conjunto com os papéis nele indicados, e verifica o que se pode exigir a um formulário: que todas as colunas do seu `requiredFields` configurado estejam preenchidas, que o 工作票种类 conste dos que a sua implantação declara, que 签发时间 → 许可时间 → 终结时间 formem uma sequência fisicamente possível, que um 延期时间 empurre o fim para a frente e não seja anterior à autorização, que os papéis configurados como exclusivos sejam desempenhados por pessoas diferentes, e que o texto das medidas de segurança e da autorização contenha os cinco termos de 安全技术措施 e os três de 许可手续 que o pacote procura. As verificações que não puderam ser executadas são listadas em `skipped` com o respetivo motivo, em vez de passarem em silêncio.
 
