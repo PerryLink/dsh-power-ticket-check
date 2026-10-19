@@ -30,6 +30,34 @@ dsh --profile <name> --dump-config | grep 'dsh-power-ticket-check'
 下表是示例集：第一行是详细走查，其余行是简短案例。
 
 
+#### 详细输出
+
+**工具** `power_ticket_check`
+
+**输入**
+
+~~~json
+{"工作票编号":"DL-2026-0001","工作票种类":"电气第一种工作票","安全措施":"应停电、验电、装设接地线。"}
+~~~
+ 
+**输出**
+
+~~~json
+{
+  "id": "dsh-power-ticket-check.PT-006.104aebcf",
+  "ruleId": "PT-006",
+  "severity": "error",
+  "locator": {
+    "column": "安全措施"
+  },
+  "found": "安全措施文本中未出现 2 项：悬挂标示牌、装设遮栏",
+  "expected": "在电气设备上工作，应有停电、验电、装设接地线、悬挂标示牌和装设遮栏（围栏）等保证安全的技术措施",
+  "fix": "核对票面是否写全五项；本条只核对是否写到，不判断措施内容是否与现场相符"
+}
+~~~
+
+*来源 `dsh-power-ticket-check/tests/fixtures/PT-006/PT-006-unsafe.json (cases.json expects 1×PT-006); executed parseMaterial+runCheck, checkedAt=2026-10-06T00:00:00.000Z`*
+
 | 你会问 | 它怎么答 |
 |---|---|
 | 出厂状态下，随便一份工作票都能通过，为什么？ | 因为 `PT-001` 是以 `skipped` 自报，不是判定通过。它的 `requiredFields` 清单出厂为空，本条无法执行；请按本机构票面把必填栏目填进去。即便配置好后，`PT-001` 也只核对栏目是否填写，不判断填写内容是否正确，且严重级为 `info`。 |

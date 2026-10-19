@@ -28,6 +28,34 @@ dsh --profile <name> --dump-config | grep 'dsh-power-ticket-check'
 
 The table below is the example set: the first row is the detailed walkthrough, the remaining rows are short cases.
 
+#### Detailed output
+
+**Tool** `power_ticket_check`
+
+**Input**
+
+~~~json
+{"工作票编号":"DL-2026-0001","工作票种类":"电气第一种工作票","安全措施":"应停电、验电、装设接地线。"}
+~~~
+ 
+**Output**
+
+~~~json
+{
+  "id": "dsh-power-ticket-check.PT-006.104aebcf",
+  "ruleId": "PT-006",
+  "severity": "error",
+  "locator": {
+    "column": "安全措施"
+  },
+  "found": "安全措施文本中未出现 2 项：悬挂标示牌、装设遮栏",
+  "expected": "在电气设备上工作，应有停电、验电、装设接地线、悬挂标示牌和装设遮栏（围栏）等保证安全的技术措施",
+  "fix": "核对票面是否写全五项；本条只核对是否写到，不判断措施内容是否与现场相符"
+}
+~~~
+
+*Observed from `dsh-power-ticket-check/tests/fixtures/PT-006/PT-006-unsafe.json (cases.json expects 1×PT-006); executed parseMaterial+runCheck, checkedAt=2026-10-06T00:00:00.000Z`*
+
 | You ask | What it answers |
 |---|---|
 | Out of the box it passes every ticket I run through it — why? | Because `PT-001` reports itself in `skipped`, not as a pass. Its `requiredFields` list ships empty, so the rule cannot run; fill it with the columns your own form requires. Even when configured, `PT-001` checks that a column is filled, not that the value in it is correct, and it sits at `info`. |
