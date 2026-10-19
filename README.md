@@ -15,13 +15,17 @@ dsh --profile <name> --dump-config | grep 'dsh-power-ticket-check'
 
 ## What it looks like
 
-![Terminal demo of dsh-power-ticket-check: real output over its PT-003 fixture](https://raw.githubusercontent.com/PerryLink/dsh-power-ticket-check/main/docs/assets/dsh-power-ticket-check-hero.png)
+![Workflow diagram for dsh-power-ticket-check: document → rule pack → findings.](docs/assets/dsh-power-ticket-check-flow.svg)
 
-![Animated terminal demo of dsh-power-ticket-check](https://raw.githubusercontent.com/PerryLink/dsh-power-ticket-check/main/docs/assets/dsh-power-ticket-check-demo.gif)
+*Workflow overview: document → rule pack → findings. The examples below use the real command surface.*
 
-Real output from this plugin over its own `PT-003` test fixture — not a mock-up. The rule pack ships no invented quotations, so a finding names both the clause it applied and the fact that the clause text was not obtained.
+
 
 ## What it answers
+
+### Examples
+
+The table below is the example set: the first row is the detailed walkthrough, the remaining rows are short cases.
 
 | You ask | What it answers |
 |---|---|
