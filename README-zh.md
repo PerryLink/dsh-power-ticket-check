@@ -1,6 +1,6 @@
 # dsh-power-ticket-check — 电力工作票要素齐备性与签发许可终结顺序核对
 
-## 快速试跑（1 分钟）
+### 快速试跑（1 分钟）
 
 ```bash
 node samples/quickstart/run.mjs --check
