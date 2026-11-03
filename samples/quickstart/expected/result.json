@@ -1,0 +1,10 @@
+{
+  "tool": "power_ticket_check",
+  "issueCount": 2,
+  "summary": {
+    "error": 1,
+    "warn": 1,
+    "info": 0
+  },
+  "skippedCount": 5
+}
