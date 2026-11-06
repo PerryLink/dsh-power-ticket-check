@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-power-ticket-check-flow-dark.svg">
-  <img src="docs/assets/dsh-power-ticket-check-flow-light.svg" width="100%" alt="Fluxo de dados do dsh-power-ticket-check: permissão JSON/YAML → ferramenta power_ticket_check → pacote de regras rules/*.yaml (PT-001..PT-007) → relatório issues[] + skipped[] → revisor; a configuração entra por rulesFile / disabledRules / onlyRules / timeoutMs">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-power-ticket-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-power-ticket-check-hero-en-light.webp" width="100%" alt="dsh-power-ticket-check: à esquerda o nome do plugin e as frases de valor; à direita uma permissão de trabalho com uma linha temporal vertical (emissão 2026-03-14 16:00 → autorização 2026-03-15 08:30 → encerramento 2026-03-15 17:00), cinco medidas de segurança com a placa de sinalização e a barreira em falta, as linhas PT-006 error e PT-007 warn, PT-003 executada sem diferenças, e PT-001/002/005 em skipped porque as listas da instituição vêm vazias; a faixa do relatório indica 2 diferenças e 5 em skipped, o veredicto fica com o revisor">
 </picture>
 
 # dsh-power-ticket-check
@@ -43,6 +43,11 @@ As verificações que não puderam ser executadas são listadas em `skipped` com
 - **Para quem é**: pessoal de operação elétrica, emissores de permissões e titulares de autorização; não é necessária linha de comandos — entregue o material no chat.
 - **O que entrega**: o material de origem sobre o qual a verificação trabalha (uma tabela, um registo ou um documento); o original nunca é modificado. O Excel pode ser convertido antes para JSON/YAML, no chat se a plataforma o permitir.
 - **O que recebe**: uma lista de «qual coluna, o que falta, como completar»; cada verificação que não pôde ser executada aparece em `skipped` com o respetivo motivo.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-power-ticket-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-power-ticket-check-flow-v5-light.svg" width="100%" alt="Estrutura do dsh-power-ticket-check: uma permissão de trabalho dividida em três faixas de evidência — listas da instituição, cronologia (emissão → autorização → encerramento, prorrogação opcional) e texto (termos de medidas e de trâmites); as sete regras são etiquetadas onde leem. Dois canais saem do quadro — issues[] com gravidade e skipped[] com motivo — e chegam ao revisor; uma escala de vigência à direita limita a gravidade pelo capítulo da GB 26860—2011">
+</picture>
 
 ## Instalação em três passos
 
@@ -383,7 +388,7 @@ node samples/quickstart/run.mjs --json
 # => {"tool":"power_ticket_check","issueCount":2,"summary":{"error":1,"warn":1,"info":0},"skippedCount":5}
 ```
 
-As imagens do README são geradas programaticamente por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow) — um plugin sem interface recebe um par de SVG de fluxo claro/escuro como herói, e o script pode ser executado novamente. O fluxo de uma só pele e as imagens de demonstração antigas permanecem em `docs/assets/` para ligações externas; o README referencia apenas o par novo.
+As imagens do README são geradas programaticamente por [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow para o banner hero, SVG escrito à mão para o diagrama de estrutura) e o script pode ser executado novamente; o fluxo antigo de uma só pele e as imagens de demonstração ficam em `docs/assets/` para ligações externas, enquanto o README referencia apenas o novo hero e o diagrama de estrutura flow-v5, cada um em claro e escuro.
 
 Tópicos: `deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `power`, `ticket`
 

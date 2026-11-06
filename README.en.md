@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-power-ticket-check-flow-dark.svg">
-  <img src="docs/assets/dsh-power-ticket-check-flow-light.svg" width="100%" alt="dsh-power-ticket-check data flow: ticket JSON/YAML → power_ticket_check tool → rules/*.yaml rule pack (PT-001..PT-007) → issues[] + skipped[] report → reviewer; config flows in via rulesFile / disabledRules / onlyRules / timeoutMs">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-power-ticket-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-power-ticket-check-hero-en-light.webp" width="100%" alt="dsh-power-ticket-check: the plugin name and value lines on the left; on the right a work ticket with a vertical timeline (issued 2026-03-14 16:00 → permit 2026-03-15 08:30 → finish 2026-03-15 17:00), five safety measures with sign board and barrier missing, the PT-006 error and PT-007 warn rows, PT-003 running clean, and PT-001/002/005 skipping because the institution lists ship empty; the report strip reads 2 issues and 5 skipped, the verdict stays human">
 </picture>
 
 # dsh-power-ticket-check
@@ -43,6 +43,11 @@ Checks that could not run are listed in `skipped` with their reason rather than 
 - **Who it is for**: power operations staff, ticket issuers and permit holders; no command line required — hand the material over in chat.
 - **What you give it**: the source material the check works on (a table, register or document); the original is never modified. Excel can be converted to JSON/YAML first, in chat if the platform supports it.
 - **What you get back**: a list of "which column, what is missing, how to fix it"; every check that could not run is listed in `skipped` with its reason.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-power-ticket-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-power-ticket-check-flow-v5-light.svg" width="100%" alt="dsh-power-ticket-check structure: one work ticket dissected into three evidence bands — institution lists, chronology (issue → permit → finish, extension optional), and text (measure terms, permit terms); the seven rules are tagged where they read. Two channels leave the board — issues[] with severity and skipped[] with a reason — and reach the reviewer; a force scale on the right caps severity by the force of the GB 26860—2011 chapter">
+</picture>
 
 ## Three-step setup
 
@@ -383,7 +388,7 @@ node samples/quickstart/run.mjs --json
 # => {"tool":"power_ticket_check","issueCount":2,"summary":{"error":1,"warn":1,"info":0},"skippedCount":5}
 ```
 
-The README images are generated programmatically by [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow) — a no-UI plugin gets a light/dark SVG flow pair as its hero, and the script is safe to re-run. The older single-skin flow and demo images stay in `docs/assets/` for external deep links; the README references only the new pair.
+The README images are generated programmatically by [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Pillow for the hero banner, hand-written SVG for the structure diagram) and are safe to re-run; the older single-skin flow and demo images stay in `docs/assets/` for external deep links, while the READMEs reference only the new hero and flow-v5 structure diagram, each in light and dark.
 
 Topics: `deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `power`, `ticket`
 

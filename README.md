@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-power-ticket-check-flow-dark.svg">
-  <img src="docs/assets/dsh-power-ticket-check-flow-light.svg" width="100%" alt="dsh-power-ticket-check 数据流：工作票 JSON/YAML → power_ticket_check 工具 → rules/*.yaml 规则包（PT-001..PT-007）→ issues[] + skipped[] 报告 → 审核人复核；配置经 rulesFile / disabledRules / onlyRules / timeoutMs 注入">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-power-ticket-check-hero-zh-dark.webp">
+  <img src="docs/assets/dsh-power-ticket-check-hero-zh-light.webp" width="100%" alt="dsh-power-ticket-check 配图：左列是插件名与价值句；右侧是一张工作票——签发 2026-03-14 16:00 → 许可 2026-03-15 08:30 → 终结 2026-03-15 17:00 的竖向时间轴、五项安全技术措施中缺悬挂标示牌与装设遮栏、PT-006 error 与 PT-007 warn 两行结果、PT-003 已执行未见差异与 PT-001/002/005 清单为空一并计入 skipped；底部报告行：2 条差异、5 条 skipped，结论留给审核人">
 </picture>
 
 # dsh-power-ticket-check
@@ -43,6 +43,11 @@ dsh plugin --profile <name> add dsh-power-ticket-check
 - **给谁用**：电力运维人员、工作票签发人与许可人；不用懂命令行，在对话里把材料交给它即可。
 - **你交什么**：这项核对用到的原始材料（表格、清单或文书）；不改原件。Excel 可先转成 JSON/YAML，对话里也能代转。
 - **它交什么**：一份「哪一栏、差什么、怎么补」的清单；没能执行的检查逐条列入 `skipped` 并写明原因。
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-power-ticket-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-power-ticket-check-flow-v5-light.svg" width="100%" alt="dsh-power-ticket-check 结构图：一份工作票拆成清单、时间轴与文本三层证据带，七条规则（PT-001..PT-007）逐层读取；差异进 issues[]，未执行或未发现差异进 skipped[]，两条通道汇到审核人；右侧效力层级尺按 GB 26860—2011 的章节效力封顶严重级">
+</picture>
 
 ## 三步上手
 
@@ -349,7 +354,7 @@ node samples/quickstart/run.mjs --json
 # => {"tool":"power_ticket_check","issueCount":2,"summary":{"error":1,"warn":1,"info":0},"skippedCount":5}
 ```
 
-README 配图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成（Python + Pillow）——无 UI 的插件用深浅双版 SVG 流程图作 hero，脚本可重复执行；旧的单版流程图与演示图保留在 `docs/assets/` 供外链使用，README 只引用新生成的深浅双版。
+README 配图由 [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) 程序化生成——hero 横幅用 Pillow 画、结构图用手写 SVG 画——可重复执行；旧的单版流程图与演示图保留在 `docs/assets/` 供外链使用，README 只引用新生成的 hero 与 flow-v5 结构图（各含深浅双版）。
 
 Topics：`deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `power`, `ticket`
 

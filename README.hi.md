@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-power-ticket-check-flow-dark.svg">
-  <img src="docs/assets/dsh-power-ticket-check-flow-light.svg" width="100%" alt="dsh-power-ticket-check का डेटा प्रवाह: टिकट JSON/YAML → power_ticket_check टूल → rules/*.yaml नियम पैक (PT-001..PT-007) → issues[] + skipped[] रिपोर्ट → समीक्षक; कॉन्फ़िगरेशन rulesFile / disabledRules / onlyRules / timeoutMs से आता है">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-power-ticket-check-hero-en-dark.webp">
+  <img src="docs/assets/dsh-power-ticket-check-hero-en-light.webp" width="100%" alt="dsh-power-ticket-check: बाईं ओर प्लगइन का नाम और मूल्य-पंक्तियाँ; दाईं ओर एक कार्य-टिकट जिसमें ऊर्ध्वाधर समय-रेखा है (जारी 2026-03-14 16:00 → अनुमति 2026-03-15 08:30 → समापन 2026-03-15 17:00), पाँच सुरक्षा उपायों में साइन बोर्ड और बैरियर अनुपस्थित, PT-006 error और PT-007 warn पंक्तियाँ, PT-003 बिना अंतर के चली, तथा PT-001/002/005 skipped क्योंकि संस्था की सूचियाँ खाली आती हैं; रिपोर्ट पट्टी में 2 अंतर और 5 skipped, निर्णय समीक्षक के पास">
 </picture>
 
 # dsh-power-ticket-check
@@ -43,6 +43,11 @@ dsh plugin --profile <name> add dsh-power-ticket-check
 - **किसके लिए**: बिजली संचालन कर्मी, टिकट जारीकर्ता और अनुमति धारक; कमांड लाइन की ज़रूरत नहीं — सामग्री चैट में सौंप दें।
 - **आप क्या देते हैं**: वह मूल सामग्री जिस पर जाँच चलती है (तालिका, रजिस्टर या दस्तावेज़); मूल कभी नहीं बदला जाता। Excel को पहले JSON/YAML में बदला जा सकता है, चैट में भी यदि प्लेटफ़ॉर्म सहयता करता हो।
 - **आपको क्या मिलता है**: «कौन-सा कॉलम, क्या छूटा, कैसे पूरा करें» की सूची; हर वह जाँच जो नहीं चल सकी, `skipped` में कारण के साथ आती है।
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/dsh-power-ticket-check-flow-v5-dark.svg">
+  <img src="docs/assets/dsh-power-ticket-check-flow-v5-light.svg" width="100%" alt="dsh-power-ticket-check की संरचना: एक कार्य-टिकट तीन साक्ष्य-पट्टियों में विभाजित — संस्था की सूचियाँ, समय-क्रम (जारी → अनुमति → समापन, विस्तार वैकल्पिक) और पाठ (उपाय तथा औपचारिकता शब्द); सात नियम वहीं चिह्नित हैं जहाँ वे पढ़ते हैं। दो चैनल बाहर जाते हैं — issues[] गंभीरता के साथ और skipped[] कारण के साथ — और समीक्षक तक पहुँचते हैं; दाईं ओर प्रभाव-स्तर GB 26860—2011 के अध्याय के अनुसार गंभीरता की सीमा तय करता है">
+</picture>
 
 ## तीन चरणों में शुरुआत
 
@@ -383,7 +388,7 @@ node samples/quickstart/run.mjs --json
 # => {"tool":"power_ticket_check","issueCount":2,"summary":{"error":1,"warn":1,"info":0},"skippedCount":5}
 ```
 
-README की छवियाँ [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) (Python + Pillow) द्वारा क्रमादेशिक रूप से बनाई जाती हैं — बिना UI वाले प्लगइन को हल्के/गहरे SVG प्रवाह-युग्म hero के रूप में मिलता है, और स्क्रिप्ट दोबारा चलाई जा सकती है। पुराना एक-रूप प्रवाह और डेमो छवियाँ बाहरी लिंक के लिए `docs/assets/` में रहती हैं; README केवल नए युग्म का संदर्भ देता है।
+README की छवियाँ [`scripts/gen-readme-assets.py`](scripts/gen-readme-assets.py) से क्रमादेशिक रूप से बनती हैं (hero बैनर के लिए Pillow, संरचना चित्र के लिए हाथ से लिखा SVG) और स्क्रिप्ट दोबारा चलाई जा सकती है; पुराना एक-रूप प्रवाह और डेमो छवियाँ बाहरी लिंक के लिए `docs/assets/` में रहती हैं, जबकि README केवल नए hero और flow-v5 संरचना चित्रों का संदर्भ देता है, दोनों हल्के और गहरे रूप में।
 
 विषय: `deepseek-harness`, `dsh`, `dsh-plugin`, `cordis`, `power`, `ticket`
 

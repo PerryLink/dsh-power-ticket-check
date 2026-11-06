@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="660" viewBox="0 0 1100 660" role="img" aria-label="dsh-power-ticket-check 结构图：一份工作票拆成清单、时间轴与文本三层证据带，七条规则（PT-001..PT-007）逐层读取；差异进 issues[]，未执行或未发现差异进 skipped[]，两条通道汇到审核人；右侧效力阶梯按GB 26860—2011 的章节效力封顶严重级">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#f9f6fd"/><stop offset="1" stop-color="#e4eaf8"/></linearGradient>
+<filter id="soft" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#16122c" flood-opacity="0.10"/></filter>
+</defs>
+<rect width="1100" height="660" fill="url(#bg)"/>
+<text x="44" y="58" fill="#141419" font-family="'Consolas','SFMono-Regular',Menlo,ui-monospace,monospace" font-size="28" font-weight="700">dsh-power-ticket-check</text>
+<text x="44" y="86" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14.5">一份工作票拆成清单、时间轴与文本三层证据：七条规则逐层读取，差异与未执行分两条通道离开。</text>
+<rect x="911.0" y="36" width="145.0" height="26" rx="13.0" fill="#f5f2fb"/>
+<text x="923.0" y="53.08" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="12" font-weight="700">规则包 v2026.1 · 7 条</text>
+<rect x="44" y="108" width="628" height="478" rx="20" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.5" filter="url(#soft)"/>
+<text x="62" y="132" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" font-weight="700">工作票 · DL-2026-0001</text>
+<rect x="544.0" y="118" width="110.0" height="22" rx="11.0" fill="#f5f2fb"/>
+<text x="555.0" y="132.74" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" font-weight="700">电气第一种工作票</text>
+<text x="62" y="154" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">35kV 某某变电站 · 10kV 某某线 01 号杆更换隔离开关</text>
+<line x1="62" y1="166" x2="654" y2="166" stroke="#e3dfee" stroke-width="1" stroke-linecap="round"/>
+<rect x="62" y="176" width="592" height="46" rx="12" fill="#f5f2fb"/>
+<rect x="62" y="176" width="592" height="46" rx="12" fill="none" stroke="#4B67B4" stroke-width="1.2" stroke-dasharray="6 5"/>
+<text x="76" y="196" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">本机构清单出厂为空 → PT-001 / 002 / 005 进 skipped</text>
+<text x="76" y="214" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">requiredFields · ticketKinds · exclusiveRolePairs 需按本机构填写</text>
+<text x="62" y="246" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">时间轴</text>
+<text x="116" y="246" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">签发 → 许可 → 终结</text>
+<rect x="596.0" y="234" width="58.0" height="18" rx="9.0" fill="#eef1fb"/>
+<text x="605.0" y="246.74" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" font-weight="700">PT-003</text>
+<line x1="100" y1="314" x2="640" y2="314" stroke="#e3dfee" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="130" y1="307" x2="130" y2="321" stroke="#4B67B4" stroke-width="2" stroke-linecap="round"/>
+<circle cx="130" cy="314" r="5.5" fill="#4B67B4"/>
+<text x="130" y="292" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="middle">签发时间</text>
+<text x="130" y="340" fill="#141419" font-family="'Consolas','SFMono-Regular',Menlo,ui-monospace,monospace" font-size="13" text-anchor="middle" font-weight="700">2026-03-14 16:00</text>
+<line x1="300" y1="307" x2="300" y2="321" stroke="#4B67B4" stroke-width="2" stroke-linecap="round"/>
+<circle cx="300" cy="314" r="5.5" fill="#4B67B4"/>
+<text x="300" y="292" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="middle">许可时间</text>
+<text x="300" y="340" fill="#141419" font-family="'Consolas','SFMono-Regular',Menlo,ui-monospace,monospace" font-size="13" text-anchor="middle" font-weight="700">2026-03-15 08:30</text>
+<line x1="470" y1="307" x2="470" y2="321" stroke="#4B67B4" stroke-width="2" stroke-linecap="round"/>
+<circle cx="470" cy="314" r="5.5" fill="#4B67B4"/>
+<text x="470" y="292" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="middle">终结时间</text>
+<text x="470" y="340" fill="#141419" font-family="'Consolas','SFMono-Regular',Menlo,ui-monospace,monospace" font-size="13" text-anchor="middle" font-weight="700">2026-03-15 17:00</text>
+<line x1="476" y1="314" x2="610" y2="314" stroke="#8f94a4" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="6 5"/>
+<circle cx="610" cy="314" r="5.5" fill="#ffffff" stroke="#8f94a4" stroke-width="1.8"/>
+<text x="610" y="292" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="middle">延期时间</text>
+<text x="610" y="340" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5" text-anchor="middle">未提供</text>
+<text x="610" y="362" fill="#8f94a4" font-family="'Consolas','SFMono-Regular',Menlo,ui-monospace,monospace" font-size="11" text-anchor="middle">PT-004 skipped</text>
+<line x1="138" y1="356" x2="292" y2="356" stroke="#8f94a4" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="138" y1="352" x2="138" y2="360" stroke="#8f94a4" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="292" y1="352" x2="292" y2="360" stroke="#8f94a4" stroke-width="1.2" stroke-linecap="round"/>
+<text x="215.0" y="372" fill="#8f94a4" font-family="'Consolas','SFMono-Regular',Menlo,ui-monospace,monospace" font-size="11" text-anchor="middle">16.5 h</text>
+<line x1="308" y1="356" x2="462" y2="356" stroke="#8f94a4" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="308" y1="352" x2="308" y2="360" stroke="#8f94a4" stroke-width="1.2" stroke-linecap="round"/>
+<line x1="462" y1="352" x2="462" y2="360" stroke="#8f94a4" stroke-width="1.2" stroke-linecap="round"/>
+<text x="385.0" y="372" fill="#8f94a4" font-family="'Consolas','SFMono-Regular',Menlo,ui-monospace,monospace" font-size="11" text-anchor="middle">8.5 h</text>
+<text x="62" y="372" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">墙上时钟比较</text>
+<text x="62" y="404" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">安全措施</text>
+<text x="118" y="404" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">五项安全技术措施</text>
+<rect x="557.0" y="392" width="97.0" height="18" rx="9.0" fill="#fbeae8" stroke="#b42318" stroke-width="1"/>
+<text x="566.0" y="404.74" fill="#b42318" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" font-weight="700">PT-006 · error</text>
+<rect x="62" y="414" width="66.0" height="24" rx="12.0" fill="#f5f2fb" stroke="#4B67B4" stroke-width="1.4"/>
+<circle cx="79" cy="426.0" r="6.5" fill="#4B67B4"/>
+<path d="M75.6 426.4 l2.1 2.6 l4.2 -5" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="92" y="430.0" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5" font-weight="700">停电</text>
+<rect x="136.0" y="414" width="66.0" height="24" rx="12.0" fill="#f5f2fb" stroke="#4B67B4" stroke-width="1.4"/>
+<circle cx="153.0" cy="426.0" r="6.5" fill="#4B67B4"/>
+<path d="M149.6 426.4 l2.1 2.6 l4.2 -5" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="166.0" y="430.0" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5" font-weight="700">验电</text>
+<rect x="210.0" y="414" width="102.0" height="24" rx="12.0" fill="#f5f2fb" stroke="#4B67B4" stroke-width="1.4"/>
+<circle cx="227.0" cy="426.0" r="6.5" fill="#4B67B4"/>
+<path d="M223.6 426.4 l2.1 2.6 l4.2 -5" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="240.0" y="430.0" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5" font-weight="700">装设接地线</text>
+<rect x="320.0" y="414" width="102.0" height="24" rx="12.0" fill="#fbeae8" stroke="#b42318" stroke-width="1.4"/>
+<circle cx="337.0" cy="426.0" r="6.5" fill="none" stroke="#b42318" stroke-width="1.5"/>
+<path d="M334.4 423.4 l5.2 5.2 M339.6 423.4 l-5.2 5.2" fill="none" stroke="#b42318" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="350.0" y="430.0" fill="#b42318" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5" font-weight="700">悬挂标示牌</text>
+<rect x="430.0" y="414" width="90.0" height="24" rx="12.0" fill="#fbeae8" stroke="#b42318" stroke-width="1.4"/>
+<circle cx="447.0" cy="426.0" r="6.5" fill="none" stroke="#b42318" stroke-width="1.5"/>
+<path d="M444.4 423.4 l5.2 5.2 M449.6 423.4 l-5.2 5.2" fill="none" stroke="#b42318" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="460.0" y="430.0" fill="#b42318" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5" font-weight="700">装设遮栏</text>
+<text x="62" y="458" fill="#b42318" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5" font-weight="700">未出现 2 项：悬挂标示牌、装设遮栏</text>
+<text x="62" y="476" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">只核对票面是否写到，不判断措施是否与现场相符</text>
+<text x="62" y="502" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="13" font-weight="700">许可手续</text>
+<text x="118" y="502" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">三项手续</text>
+<rect x="558.0" y="490" width="96.0" height="18" rx="9.0" fill="#fdf3e9" stroke="#b45309" stroke-width="1"/>
+<text x="567.0" y="502.74" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" font-weight="700">PT-007 · warn</text>
+<text x="62" y="526" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">未出现 4 项：再次检查、带电设备的位置、确认、签名</text>
+<text x="62" y="546" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">读取 安全措施 · 许可开始工作时间 · 角色签名栏</text>
+<text x="62" y="570" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">只读原件 · 原文不改 · 无网络 · 不调用模型</text>
+<rect x="692" y="108" width="364" height="478" rx="20" fill="#ffffff" stroke="#e6e2ef" stroke-width="1.5" filter="url(#soft)"/>
+<text x="710" y="132" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="14" font-weight="700">报告</text>
+<rect x="944.0" y="118" width="94.0" height="20" rx="10.0" fill="#f5f2fb"/>
+<text x="954.0" y="131.74" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" font-weight="700">规则包 2026.1</text>
+<line x1="710" y1="144" x2="1038" y2="144" stroke="#e3dfee" stroke-width="1" stroke-linecap="round"/>
+<text x="710" y="164" fill="#4B67B4" font-family="'Consolas','SFMono-Regular',Menlo,ui-monospace,monospace" font-size="13" font-weight="700">issues[]</text>
+<rect x="999.0" y="152" width="39.0" height="18" rx="9.0" fill="#eef1fb"/>
+<text x="1008.0" y="164.74" fill="#4B67B4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" font-weight="700">2 条</text>
+<text x="710" y="188" fill="#141419" font-family="'Consolas','SFMono-Regular',Menlo,ui-monospace,monospace" font-size="12" font-weight="700">PT-006</text>
+<rect x="770" y="176" width="44.0" height="16" rx="8.0" fill="#fbeae8" stroke="#b42318" stroke-width="1"/>
+<text x="778" y="187.74" fill="#b42318" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" font-weight="700">error</text>
+<text x="1038" y="188" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="end">安全措施</text>
+<text x="710" y="206" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">未出现 2 项：悬挂标示牌、装设遮栏</text>
+<text x="710" y="238" fill="#141419" font-family="'Consolas','SFMono-Regular',Menlo,ui-monospace,monospace" font-size="12" font-weight="700">PT-007</text>
+<rect x="770" y="226" width="43.0" height="16" rx="8.0" fill="#fdf3e9" stroke="#b45309" stroke-width="1"/>
+<text x="778" y="237.74" fill="#b45309" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" font-weight="700">warn</text>
+<text x="1038" y="238" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" text-anchor="end">许可手续</text>
+<text x="710" y="256" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">未出现 4 项：再次检查、带电设备的位置、确认、签名</text>
+<line x1="710" y1="270" x2="1038" y2="270" stroke="#e3dfee" stroke-width="1" stroke-linecap="round"/>
+<text x="710" y="290" fill="#4d5261" font-family="'Consolas','SFMono-Regular',Menlo,ui-monospace,monospace" font-size="13" font-weight="700">skipped[]</text>
+<rect x="999.0" y="278" width="39.0" height="18" rx="9.0" fill="#f5f2fb"/>
+<text x="1008.0" y="290.74" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11" font-weight="700">5 条</text>
+<text x="710" y="314" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">PT-001 · requiredFields 未配置</text>
+<text x="710" y="334" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">PT-002 · ticketKinds 未配置</text>
+<text x="710" y="354" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">PT-004 · 材料未提供延期时间</text>
+<text x="710" y="374" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">PT-005 · exclusiveRolePairs 未配置</text>
+<text x="710" y="394" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">PT-003 · 已执行，未见差异</text>
+<text x="710" y="414" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">空 issues ≠ 没问题：两条通道一起读</text>
+<line x1="710" y1="424" x2="1038" y2="424" stroke="#e3dfee" stroke-width="1" stroke-linecap="round"/>
+<text x="710" y="438" fill="#141419" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5" font-weight="700">效力层级 → 严重级</text>
+<circle cx="714" cy="455" r="3" fill="#b42318"/>
+<text x="724" y="458" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">第 6 章 强制性 · 6.1.1</text>
+<text x="1038" y="458" fill="#b42318" font-family="'Consolas','SFMono-Regular',Menlo,ui-monospace,monospace" font-size="11" text-anchor="end" font-weight="700">error</text>
+<circle cx="714" cy="473" r="3" fill="#b45309"/>
+<text x="724" y="476" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">第 5 章 推荐性 · 5.x</text>
+<text x="1038" y="476" fill="#b45309" font-family="'Consolas','SFMono-Regular',Menlo,ui-monospace,monospace" font-size="11" text-anchor="end" font-weight="700">warn</text>
+<circle cx="714" cy="491" r="3" fill="#8f94a4"/>
+<text x="724" y="494" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">本机构配置 · requiredFields</text>
+<text x="1038" y="494" fill="#8f94a4" font-family="'Consolas','SFMono-Regular',Menlo,ui-monospace,monospace" font-size="11" text-anchor="end" font-weight="700">info</text>
+<rect x="710" y="520" width="328" height="40" rx="13" fill="#e9f7ee" stroke="#15803d" stroke-width="1.2"/>
+<text x="724" y="545" fill="#15803d" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5" font-weight="700">结论留给审核人 · 不判合规</text>
+<text x="710" y="578" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11">免责声明随报告附带 · 措辞守卫生效</text>
+<line x1="44" y1="604" x2="1056" y2="604" stroke="#e3dfee" stroke-width="1" stroke-linecap="round"/>
+<text x="44" y="626" fill="#4d5261" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">严重级跟着证据走：derived-from-principle ≤ warn · institutional-configuration ≤ info ｜ excerpt 必须是逐字引文</text>
+<text x="44" y="646" fill="#8f94a4" font-family="'Microsoft YaHei','PingFang SC','Noto Sans CJK SC','Source Han Sans SC',sans-serif" font-size="11.5">config：rulesFile · disabledRules · onlyRules · timeoutMs ｜ 只读材料 · 无网络 · 不调用模型 ｜ 墙上时钟，不换算时区</text>
+</svg>
