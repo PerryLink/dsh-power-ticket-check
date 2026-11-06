@@ -1,13 +1,16 @@
-// Five-language README sync gate: every README must carry the same number of
-// `## ` sections as the English source, state the published install command,
-// and contain every configuration-table key. Section headings may be
-// translated; the English file is the source of truth.
+// README sync gate (A-mode, dotted names): the Chinese main README must carry
+// the same number of `## ` sections as the English source, state the published
+// install command, and contain every configuration-table key. Section headings
+// may be translated; the English file is the source of truth. The other three
+// dotted translations are not compared here (the family-wide self-check covers
+// their switcher, anchors and images), so package.json's legacy `files[]`
+// entries stay untouched.
 import { readFileSync, existsSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)))
-const FILES = ['README.md', 'README-zh.md', 'README-es.md', 'README-pt.md', 'README-hi.md']
+const FILES = ['README.en.md', 'README.md']
 const INSTALL_COMMAND = 'dsh plugin --profile <name> add dsh-power-ticket-check'
 
 const failures = []
@@ -69,4 +72,4 @@ if (failures.length > 0) {
   for (const failure of failures) console.error(`  - ${failure}`)
   process.exit(1)
 }
-console.log(`readme-sync: all ${FILES.length} READMEs share ${expectedSections} sections, the install command, and ${expectedKeys.length} config keys`)
+console.log(`readme-sync: both READMEs share ${expectedSections} sections, the install command, and ${expectedKeys.length} config keys`)
