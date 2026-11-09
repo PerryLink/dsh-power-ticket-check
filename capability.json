@@ -1,20 +1,35 @@
 {
   "schemaVersion": 1,
-  "tier": "L1-lite",
+  "tier": "L1+ingest",
   "input_formats": [
     "json",
-    "yaml"
+    "yaml",
+    "docx",
+    "xlsx",
+    "xlsm",
+    "csv",
+    "tsv"
   ],
   "outputs": [
     "markdown",
     "json"
   ],
   "rules": {
-    "total": 7
+    "total": 7,
+    "executed": 3,
+    "skipped": 4,
+    "manual": 0,
+    "unsupported": 0
   },
   "limits": [
-    "工作票的嵌套 JSON/YAML；尚无文档适配器",
-    "无真实语料/P/R；benchmark 未测",
-    "不做定性/合规结论"
-  ]
+    "文档入口需要另装 dsh-table-ingest；一份文档按 rowIndex 取一张工作票",
+    "4 条规则因缺少可选字段而跳过；跳过不等于通过",
+    "不判断现场安全措施是否充分，只核对工作票要素与时间顺序"
+  ],
+  "benchmark": {
+    "kind": "quickstart-sample",
+    "corpus_size": 1,
+    "note": "one CSV ticket through dsh-table-ingest; 3/7 rules run, 4 skip on absent optional fields; not a real-world P/R",
+    "measured_at": "2026-11-09"
+  }
 }

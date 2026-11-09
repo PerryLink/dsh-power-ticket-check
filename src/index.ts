@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
-import { dirname, isAbsolute, resolve } from 'node:path'
+import { dirname, extname, isAbsolute, resolve } from 'node:path'
 import type { Context } from '@deepseek-ai/cordis'
 import { defineTool } from '@deepseek-ai/dsh-tools'
 import { Config } from './config.ts'
@@ -52,10 +52,33 @@ export function resolvePackageFile(relative: string): string {
 }
 
 /** Read material from a file path or use the inline text as-is. */
-async function readMaterial(file: string | undefined, material: string | undefined, signal: AbortSignal): Promise<{ text: string; target: string }> {
+async function readMaterial(
+  file: string | undefined,
+  material: string | undefined,
+  signal: AbortSignal,
+  rowIndex = 0,
+): Promise<{ text: string; target: string }> {
   if (file !== undefined && file.trim() !== '') {
     const path = resolve(file)
     signal.throwIfAborted()
+    const extension = extname(path).toLowerCase()
+    if (['.docx', '.xlsx', '.xlsm', '.csv', '.tsv'].includes(extension)) {
+      let ingestToTable: (source: Buffer, filename: string, options: Record<string, unknown>) => { ok: boolean; table?: { rows: Record<string, string>[] }; error?: string }
+      try {
+        const api = (await import('dsh-table-ingest/api')) as {
+          ingestToTable: (source: Buffer, filename: string, options: Record<string, unknown>) => { ok: boolean; table?: { rows: Record<string, string>[] }; error?: string }
+        }
+        ingestToTable = api.ingestToTable
+      } catch {
+        throw new MaterialError('要直接读 Word/Excel/CSV，请先安装 dsh-table-ingest（dsh plugin --profile <name> add dsh-table-ingest），或先把材料转成 JSON/YAML。')
+      }
+      const buffer = await readFile(path, { signal })
+      const table = ingestToTable(buffer, path, {})
+      if (!table.ok || table.table === undefined) throw new MaterialError(`无法从 ${path} 抽出表格：${table.error ?? '未知原因'}`)
+      const row = table.table.rows[rowIndex]
+      if (row === undefined) throw new MaterialError(`文档只有 ${table.table.rows.length} 行，rowIndex=${rowIndex} 超出范围；本工具一次核对一张工作票`)
+      return { text: JSON.stringify(row), target: path }
+    }
     const text = await readFile(path, { encoding: 'utf8', signal })
     return { text, target: path }
   }
@@ -81,8 +104,9 @@ export function apply(ctx: Context, config: ConfigShape): () => void {
         '电力工作票要素齐备性与签发许可顺序核对（依据现行电力安全工作规程，仅提示差异，不作出定性结论）本工具只列出材料与所引条款之间的字面差异，供人工复核，不作出任何定性结论。' +
         '材料为 JSON 或 YAML；无法执行的检查会列在 skipped 中。',
       parameters: {
-        file: { type: 'string', description: '材料文件绝对路径（JSON 或 YAML）。与 material 二选一。' },
+        file: { type: 'string', description: '材料文件绝对路径（JSON/YAML，或 .docx/.xlsx/.xlsm/.csv/.tsv；文档格式需安装 dsh-table-ingest）。与 material 二选一。' },
         material: { type: 'string', description: '内联材料文本（JSON 或 YAML）。与 file 二选一。' },
+        rowIndex: { type: 'integer', description: '文档输入时取第几行作为一张工作票（0 起，默认 0）。' },
         rulesFile: { type: 'string', description: '覆盖配置中的规则库路径（相对插件包根或绝对路径）。' },
         only: {
           type: 'array',
@@ -132,7 +156,7 @@ export function apply(ctx: Context, config: ConfigShape): () => void {
       async execute(args, exec) {
         const relative = args.rulesFile !== undefined && args.rulesFile.trim() !== '' ? args.rulesFile : config.rulesFile
         const [material, ruleset] = await Promise.all([
-          readMaterial(args.file, args.material, exec.signal),
+          readMaterial(args.file, args.material, exec.signal, args.rowIndex ?? 0),
           loadRulesetFile(resolvePackageFile(relative)),
         ])
         exec.signal.throwIfAborted()
