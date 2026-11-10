@@ -1,0 +1,3 @@
+req_id,metric,threshold,actual,script,evidence_sha256,pass,source,counted
+CHK-POWER-TICKET-CHECK-A01,vitest 真实运行,39/39,39,npx vitest run,74789157eb53acb3fd9e8fb1902e4b72c33f4ac24cbdcac283dba9c053391c80,true,public/synthetic,false
+CHK-POWER-TICKET-CHECK-A02,失败用例数,0,0,npx vitest run,74789157eb53acb3fd9e8fb1902e4b72c33f4ac24cbdcac283dba9c053391c80,true,public/synthetic,false
