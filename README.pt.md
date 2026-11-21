@@ -49,6 +49,11 @@ As verificações que não puderam ser executadas são listadas em `skipped` com
   <img src="docs/assets/dsh-power-ticket-check-flow-v5-light.svg" width="100%" alt="Estrutura do dsh-power-ticket-check: uma permissão de trabalho dividida em três faixas de evidência — listas da instituição, cronologia (emissão → autorização → encerramento, prorrogação opcional) e texto (termos de medidas e de trâmites); as sete regras são etiquetadas onde leem. Dois canais saem do quadro — issues[] com gravidade e skipped[] com motivo — e chegam ao revisor; uma escala de vigência à direita limita a gravidade pelo capítulo da GB 26860—2011">
 </picture>
 
+![dsh-power-ticket-check: execução real de terminal](docs/assets/dsh-power-ticket-check-demo.gif)
+
+*Repetição animada de uma execução real registrada neste repositório.*
+
+
 ## Instalação em três passos
 
 1. **Instalar** (escolha um canal):

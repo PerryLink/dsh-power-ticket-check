@@ -117,6 +117,10 @@ Search for the "Safety Compliance Suite" pack in WorkBuddy / Coze (this check is
 
 ### Examples
 
+![dsh-power-ticket-check: real terminal run](docs/assets/dsh-power-ticket-check-demo.gif)
+
+*Animated replay of a real run recorded in this repository.*
+
 These are the plugin's real entry points; install once, then call one. The first block is the detailed walkthrough, the table after it holds the short cases.
 
 **Detailed example** — tool `power_ticket_check`, input:
