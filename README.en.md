@@ -7,6 +7,8 @@
 
 # dsh-power-ticket-check
 
+Current version `0.2.13`.
+
 **Hand it one power work ticket and get back a list of which column is short, what is missing, and how to fix it — the compliance verdict stays with the reviewer.**
 
 A data-only checker plugin for DeepSeek Harness: it reads one power work ticket (a flat mapping of the ticket's own column names to their values), applies the versioned rule pack it ships (PT-001..PT-007), and checks completeness plus the issue → permit → termination time order. It lists only the differences it can point to inside the material — never a compliance verdict, never a liability finding.
