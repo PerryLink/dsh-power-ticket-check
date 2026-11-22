@@ -11,6 +11,8 @@
 
 Um plugin de verificação baseado em dados para o DeepSeek Harness: lê uma **permissão de trabalho elétrico** (um mapa plano dos nomes das colunas do formulário para os respetivos valores, mais os papéis de pessoal nele indicados), aplica o pacote de regras versionado que traz (PT-001..PT-007) e verifica a completude e a ordem temporal emissão → autorização → encerramento. Lista apenas as diferenças que consegue apontar dentro do material — nunca um veredicto de conformidade, nunca uma conclusão de responsabilidade.
 
+Última verificação: DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [Instalação](#instalação-em-três-passos) · [Configuração](#configuração) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -53,7 +55,6 @@ As verificações que não puderam ser executadas são listadas em `skipped` com
 
 *Repetição animada de uma execução real registrada neste repositório.*
 
-
 ## Instalação em três passos
 
 1. **Instalar** (escolha um canal):
@@ -61,7 +62,7 @@ As verificações que não puderam ser executadas são listadas em `skipped` com
    ```sh
    # canal git (última main; equivale a git+https://github.com/PerryLink/dsh-power-ticket-check.git)
    dsh plugin --profile <name> add github:PerryLink/dsh-power-ticket-check
-   # canal npm (versões publicadas; atualmente 0.2.10)
+   # canal npm (versões publicadas; atualmente 0.2.12)
    dsh plugin --profile <name> add dsh-power-ticket-check
    # canal tarball: pnpm pack neste repositório e depois
    dsh plugin --profile <name> add ./dsh-power-ticket-check-<version>.tgz

@@ -11,6 +11,8 @@
 
 A data-only checker plugin for DeepSeek Harness: it reads one power work ticket (a flat mapping of the ticket's own column names to their values), applies the versioned rule pack it ships (PT-001..PT-007), and checks completeness plus the issue → permit → termination time order. It lists only the differences it can point to inside the material — never a compliance verdict, never a liability finding.
 
+Last verified on DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [Install](#three-step-setup) · [Configuration](#configuration) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -56,7 +58,7 @@ Checks that could not run are listed in `skipped` with their reason rather than 
    ```sh
    # git channel (latest main; equivalent to git+https://github.com/PerryLink/dsh-power-ticket-check.git)
    dsh plugin --profile <name> add github:PerryLink/dsh-power-ticket-check
-   # npm channel (published releases; currently 0.2.10)
+   # npm channel (published releases; currently 0.2.12)
    dsh plugin --profile <name> add dsh-power-ticket-check
    # tarball channel: pnpm pack in this repo, then
    dsh plugin --profile <name> add ./dsh-power-ticket-check-<version>.tgz

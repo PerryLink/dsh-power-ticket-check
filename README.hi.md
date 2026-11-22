@@ -11,6 +11,8 @@
 
 DeepSeek Harness के लिए एक डेटा-आधारित जाँच प्लगइन: यह एक **बिजली कार्य-टिकट** (टिकट के अपने कॉलम नामों से उनके मानों तक का सपाट मैप, साथ में टिकट पर लिखे कार्मिक भूमिकाएँ) पढ़ता है, अपने साथ आने वाले संस्करण-बद्ध नियम पैक (PT-001..PT-007) को लागू करता है, और पूर्णता तथा जारी → अनुमति → समापन के समय-क्रम की जाँच करता है। यह केवल वे अंतर गिनाता है जिन्हें सामग्री के भीतर इंगित किया जा सकता है — कभी अनुपालन का निर्णय नहीं, कभी दायित्व का निष्कर्ष नहीं।
 
+अंतिम सत्यापन: DeepSeek Harness `dsh-v0.2.3-alpha.1` (2026-11-22).
+
 [इंस्टॉल](#तीन-चरणों-में-शुरुआत) · [कॉन्फ़िगरेशन](#कॉन्फ़िगरेशन) · [FAQ](#faq) · [简体中文](README.md) · [English](README.en.md) · [Español](README.es.md) · [Português](README.pt.md) · [हिन्दी](README.hi.md)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-3366CC?style=flat-square&labelColor=2B3245)](LICENSE)
@@ -53,7 +55,6 @@ dsh plugin --profile <name> add dsh-power-ticket-check
 
 *इस रिपॉज़िटरी में दर्ज असली रन का एनिमेटेड रीप्ले।*
 
-
 ## तीन चरणों में शुरुआत
 
 1. **इंस्टॉल** (कोई एक चैनल चुनें):
@@ -61,7 +62,7 @@ dsh plugin --profile <name> add dsh-power-ticket-check
    ```sh
    # git चैनल (नवीनतम main; git+https://github.com/PerryLink/dsh-power-ticket-check.git के बराबर)
    dsh plugin --profile <name> add github:PerryLink/dsh-power-ticket-check
-   # npm चैनल (प्रकाशित संस्करण; अभी 0.2.10)
+   # npm चैनल (प्रकाशित संस्करण; अभी 0.2.12)
    dsh plugin --profile <name> add dsh-power-ticket-check
    # tarball चैनल: इस रिपॉज़िटरी में pnpm pack के बाद
    dsh plugin --profile <name> add ./dsh-power-ticket-check-<version>.tgz
